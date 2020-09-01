@@ -2,6 +2,10 @@ const express = require('express');
 const ejs = require('ejs');
 const paypal = require('paypal-rest-sdk');
 
+const PORT = process.env.PORT || 3000
+
+
+
 //1.Create config options, with parameters (mode, client_id, secret).
 paypal.configure({
   'mode': 'sandbox', //sandbox or live
@@ -90,4 +94,4 @@ app.get('/success', (req, res) => {
 
 app.get('/cancel', (req, res) => res.send('Cancelled'));
 
-app.listen(3000, () => console.log('Server Started'));
+app.listen(PORT, () => console.log(`Server Running on PORT: ${PORT}`));
